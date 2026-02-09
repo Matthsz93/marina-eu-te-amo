@@ -1,0 +1,279 @@
+:root {
+  --rosa: #ff5fa2;
+  --azul: #4d9cff;
+  --amarelo: #ffd84d;
+  --roxo-escuro: #1a001a;
+  --cinza: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: white;
+  color: #333;
+}
+
+/* INTRO */
+#intro {
+  min-height: 100vh;
+  background-color: #ff5fa2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+#intro h1 {
+  color: white;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+}
+
+#intro button {
+  background: var(--amarelo);
+  border: none;
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SITE */
+#site {
+  display: none;
+}
+
+/* CARTA */
+.carta {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.carta h2 {
+  color: var(--rosa);
+  margin-bottom: 20px;
+}
+
+.carta p {
+  line-height: 1.8;
+
+  display: inline;
+  padding: 10px;
+}
+
+.carta-folha {
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* folha */
+.folha {
+  width: 100%;
+  max-width: 360px;
+  min-height: 520px;
+
+  background-image: url("https://i.pinimg.com/736x/b0/40/2c/b0402c4e5a4e43b031571dd7a65e63e8.jpg"); /* imagem que você enviou */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 70px /* topo */ 30px /* direita */ 40px /* baixo */ 55px; /* esquerda — respeita a linha rosa */
+
+  border-radius: 6px;
+}
+
+/* texto da carta */
+.folha p {
+  font-family: "Montserrat", sans-serif; /* mesma fonte do título */
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #111;
+}
+
+.foto {
+  width: 90%;
+  max-width: 300px;
+  height: 360px;
+  margin: 30px auto;
+  background: black;
+  border-radius: 20px;
+}
+
+/* CONTADOR */
+.contador {
+  padding: 40px 20px;
+  background: var(--cinza);
+  text-align: center;
+}
+
+.tempo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bloco {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  min-width: 80px;
+}
+
+/* MUSICAS */
+.musicas {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.grid-musicas iframe {
+  width: 100%;
+  height: 80px;
+  border-radius: 12px;
+}
+
+/* TIMELINE */
+.timeline {
+  padding: 40px 20px;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.linha {
+  width: 4px;
+  background: linear-gradient(to bottom, var(--rosa), var(--azul));
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.card {
+  background: linear-gradient(135deg, #2b002b, var(--roxo-escuro));
+  border-radius: 25px;
+  padding: 20px;
+  color: white;
+  width: 100%;
+}
+
+.data {
+  color: var(--rosa);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card .cantada {
+  margin-top: 15px;
+  height: 320px;
+  background-image: url("cantada.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.card .cantada {
+  margin-top: 15px;
+  height: 320px;
+  background-image: url("cantada.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+.card .te-amo {
+  margin-top: 15px;
+  height: 320px;
+  background-image: url("euteamo.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+/* GALERIA FINAL */
+.galeria {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.foto {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  background: none;
+}
+/* Galeria */
+.galeria h2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+}
+
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.grid-fotos img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.grid-fotos img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* Botão fechar */
+.fechar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  background: var(--cinza);
+}
