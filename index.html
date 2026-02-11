@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marina 💖</title>
+    <title>Marina</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
@@ -13,15 +13,6 @@
   </head>
 
   <body>
-    <!-- INTRO -->
-    <section id="intro">
-      <h1>
-        Alguns dos motivos do por quê você é a mulher que eu quero pra sempre,
-        Marina.
-      </h1>
-      <button onclick="entrar()">Surpresa 💕</button>
-    </section>
-
     <!-- SITE -->
     <div id="site">
       <!-- CABEÇALHO -->
@@ -31,6 +22,8 @@
           <button onclick="mostrarSecao('cartas')">Cartas</button>
           <button onclick="mostrarSecao('fotos')">Fotos</button>
           <button onclick="mostrarSecao('musicas')">Músicas</button>
+          <button onclick="mostrarSecao('cupons')">Cupons</button>
+          <button onclick="mostrarSecao('atendimento')">Atendimento</button>
         </nav>
       </header>
 
@@ -163,6 +156,53 @@
             Sua playlist 💚
           </a>
         </section>
+
+        <section id="cupons" class="secao">
+          <h2>Cupom do Dia</h2>
+          <div class="cupom-container">
+            <div class="cupom-card">
+              <div class="cupom-topo">VÁLIDO POR 24H</div>
+              <div class="cupom-conteudo">
+                <p id="cupom-texto">Carregando surpresa...</p>
+                <div class="cupom-codigo">CÓDIGO: marinalindagatagostosa</div>
+              </div>
+              <div class="cupom-footer">Aproveita, eu te amo!!!!</div>
+            </div>
+          </div>
+          <button id="btn-resortear" onclick="resortearCupom()">
+            Resortear seu cupom (1x por dia)
+          </button>
+          <div class="proximo-cupom-timer">
+            <p>O próximo cupom será liberado em:</p>
+            <span id="tempo-restante">00:00:00</span>
+          </div>
+        </section>
+
+        <section id="atendimento" class="secao">
+          <h2>Atendimento</h2>
+          <div class="atendimento-container">
+            <p class="texto-instrucao">
+              Sua observação será direcionada para o
+              <strong>CAMNL</strong> (Centro de Atendimento da Minha Namorada
+              Linda), digite abaixo o seu desejo, elogio ou reclamação:
+            </p>
+
+            <form
+              action="https://formspree.io/f/mwvnvalw"
+              method="POST"
+              class="atendimento-form"
+            >
+              <textarea
+                name="mensagem"
+                placeholder="Escreva aqui..."
+                required
+              ></textarea>
+              <button type="submit" class="btn-enviar">Enviar!</button>
+            </form>
+
+            <p class="texto-rodape-atendimento">Te amo, Marina!</p>
+          </div>
+        </section>
       </main>
 
       <footer>Você merece, Marina 🤍</footer>
@@ -176,27 +216,43 @@
 
     <!-- JS -->
     <script>
-      function entrar() {
-        document.getElementById("intro").style.display = "none";
-        document.getElementById("site").style.display = "block";
-      }
+      const modal = document.getElementById("modal-img");
+      const modalImg = document.getElementById("img-modal");
 
+      /* NAVEGAÇÃO ENTRE SEÇÕES */
       function mostrarSecao(id) {
-        document
-          .querySelectorAll(".secao")
-          .forEach((sec) => sec.classList.remove("ativa"));
-        document.getElementById(id).classList.add("ativa");
+        // Esconde todas as seções
+        document.querySelectorAll(".secao").forEach((sec) => {
+          sec.classList.remove("ativa");
+        });
+
+        // Mostra a seção clicada com um pequeno delay para a transição suave
+        const secaoAlvo = document.getElementById(id);
+        secaoAlvo.classList.add("ativa");
+
+        // Carrega o cupom se a seção for a de cupons
+        if (id === "cupons") carregarCupomDiario();
       }
 
-      /* CONTADOR */
+      /* CONTADOR DE TEMPO */
       const inicio = new Date("2026-01-01T00:00:00");
-      setInterval(() => {
-        const diff = new Date() - inicio;
-        dias.innerText = Math.floor(diff / 86400000);
-        horas.innerText = Math.floor(diff / 3600000) % 24;
-        minutos.innerText = Math.floor(diff / 60000) % 60;
-        segundos.innerText = Math.floor(diff / 1000) % 60;
-      }, 1000);
+
+      function atualizarContador() {
+        const agora = new Date();
+        const diff = agora - inicio;
+
+        // Uso do getElementById para evitar erros de "undefined"
+        document.getElementById("dias").innerText = Math.floor(diff / 86400000);
+        document.getElementById("horas").innerText =
+          Math.floor(diff / 3600000) % 24;
+        document.getElementById("minutos").innerText =
+          Math.floor(diff / 60000) % 60;
+        document.getElementById("segundos").innerText =
+          Math.floor(diff / 1000) % 60;
+      }
+
+      setInterval(atualizarContador, 1000);
+      atualizarContador(); // Executa uma vez ao carregar
 
       /* CARTAS */
       function mostrarCarta(n) {
@@ -208,14 +264,13 @@
               Toda vez que lembro do seu sorriso, penso no quão feliz vou ser ao vê-lo no rosto das minhas filhas. Você me conquista sem se esforçar, Marina. Eu vou lutar por ti todos os segundos que eu estiver nesta terra. Você é quem me faz feliz, e farei tudo o que for possível para que seja assim, para que viva o resto da sua vida ao meu lado.
 
               Eu te amo, Marina, e sempre vou.`,
-
           2: `Eu queria te falar algumas coisas que me mostraram como amar é algo desconexo da mente, uma vez que te amar nunca passou por um departamento da razão, que analisou os prós e os contras e escolheu sua pessoa com frieza, te amar é algo muito mais fácil que isso. Nunca precisei te duvidar ou balancear seus pontos negativos, por que nunca vi seus "defeitos" como algo que me impedissem de te amar, muito pelo contrário, seus "defeitos" fazem parte do amor que sinto por ti. Minha cabeça não precisa pensar pro meu coração sentir, você corta todos os caminhos, sua mensagem não precisa ser lida pra que eu saiba o que eu tenho vontade de te falar, não vão passar 5 mensagens e eu vou acabar mandando um "eu te amo", lembro como foi dificil segurar isso, e faz sentido, pq é o que mais quero te falar em todos os momentos do meu dia. Eu quero te amar desse jeito marina, e te fazer se sentir amada irracionalmente, além da capacidade humana de processamento, quero que seja única, singular, especial. O que eu sinto por você é além desse universo.`,
 
           3: `Meu amor, hoje eu queria lembrar como me apaixonei por coisas que você nunca tentou me mostrar, apenas me permitiu te conhecer e com isso, descobri as partes mais bonitas naquela mulher que me vislumbrou (e ainda vislumbra) os olhos. Desde o primeiro dia, sempre reparei a felicidade que irradiava de todas as mensagens que mandava, o quão viva conseguia ser, amarela vibrante, de forma que fazia me sentir um pintor sem orelhas da epoca de 1900, apaixonado pela cor que você transmitia, uma sensão de conexão com a sua alma, que NUNCA tinha me acontecido. Mas mesmo assim sempre te vi azul, a mesma cor de todas as minhas vistas favoritas (seus olhos e o mar), um azul bebê, que transmitia tudo que há em você, um amor puro, que discreveu djavan, um coração que palpitava carinho, por seus familiares, gatos, cachorros, e mais tarde por mim. Então por isso, hoje, eu te devoro. E como disse chico, o buarque (não foi nenhum dos nossos gatos), marina você ME pintou, com as suas cores tão lindas que me atraem cada dia mais pra você. Te amo Marina, morena.`,
 
           4: `Meu amor, eu quero que sempre se lembre o quão apaixonante é te ver, te conhecer e consumir a sua vivência todo dia, hoje eu queria falar da primeira vez que te vi pelo instagram, quando stalkeei seus destaques para achar um jeito que chamasse a sua atenção, mas na vdd só consegui atiçar a minha, teu cabelo (que sempre foi o mais bonito que já vi), teu olho azul, teu estilo,  seu jeito com a família, tudo. Tudo seu eram as coisas mais atraentes que já tinha visto, não imaginava me apaixonar tão cedo, mas tambem eu tinha certeza que não demoraria muito, você é tão atraente, no sentido magnético, que faz meu corpo conversar com aquelas fotos e vídeos de um jeito que nunca tinha visto antes. Quando me envia um vídeo seu, meu coração acelera, meu sorriso abre, e mais coisas que não cabem mto bem aqui kkkk. Você é a menina mais linda que já conheci por isso marina, você é a que melhor conversa com meu corpo, e eu gosto muito que seja você que tenha esse controle, você é a mais bonita que já vi.`,
 
-          5: `meu amor, eu quero que sempre se lembre o quão apaixonante é te ver, te conhecer e consumir a sua vivência todo dia, hoje eu queria falar da primeira vez que te vi pelo instagram, quando stalkeei seus destaques para achar um jeito que chamasse a sua atenção, mas na vdd só consegui atiçar a minha, teu cabelo (que sempre foi o mais bonito que já vi), teu olho azul, teu estilo,  seu jeito com a família, tudo. Tudo seu eram as coisas mais atraentes que já tinha visto, não imaginava me apaixonar tão cedo, mas tambem eu tinha certeza que não demoraria muito, você é tão atraente, no sentido magnético, que faz meu corpo conversar com aquelas fotos e vídeos de um jeito que nunca tinha visto antes. Quando me envia um vídeo seu, meu coração acelera, meu sorriso abre, e mais coisas que não cabem mto bem aqui kkkk. Você é a menina mais linda que já conheci por isso marina, você é a que melhor conversa com meu corpo, e eu gosto muito que seja você que tenha esse controle, você é a mais bonita que já vi`,
+          5: `Hoje eu queria muito falar sobre seu jeito, pq se seu corpo e seu rosto foi o que me fizeram vir, seu jeito foi oq me fez ficar. Sua forma de conversar, que desde o primeiro dia exalava um sorriso bobo, suas piadas não tão engraçadas, mas que pra mim te tornam a mulher mais hilária que eu ja vi (um pouco idiota KKKK), seus gostos e sonhos que nos tornavam tão compatíveis e nos aproximavam cada dia mais, até chegar no momento que me apaixonei por você.Eu me apaixonei pelo jeito que me faz sentir tudo aquilo que ninguém jamais fez. Você uma vez reclamou sobre não ser a minha primeira, mas você foi a primeira que me fez me sentir especial, você foi a primeira que me fez querer estar perto 24h por dia, você foi a primeira que me apaixonei antes de sequer vê-la, você foi a primeira que me fez dormir e acordar com a mesma imagem, você foi a primeira que sonhou comigo com sinceridade, você foi a primeira que me fez me sentir amado. E além da primeira, você é especial. Tudo isso te credita a ser a melhor mulher da minha vida, eu te amo marina, e te quero pra sempre`,
 
           6: `espero que tenha sido sua melhor noite de sono amor, sinto sua falta o dia inteiro, eu tava te vendo no insta e CARA não é nem um pouco comum o quanto eu sou apaixonado em cada linha que te desenha, seu cabelo é o meu favorito no mundo (NÃO TROCARIA POR NADA!!!!!!!!), seus olhos tem o formato e a cor mais bonita que já vi, com certeza é minha favorita, seu nariz redondinho EU AMO MUITO é um charme do caralho, sua boca forma meu desenho favorito, a expressão de arte mais linda que já vi em toda minha vida, a atração que eu sinto por ela é surreal
 
@@ -225,14 +280,135 @@
         const box = document.getElementById("carta-texto");
         box.innerText = cartas[n];
         box.style.display = "block";
+
+        // Rola suavemente até o texto da carta
+        box.scrollIntoView({ behavior: "smooth" });
       }
-      /* MODAL */
+
+      /* MODAL DE FOTOS */
       function abrirModal(img) {
         modalImg.src = img.src;
         modal.style.display = "flex";
       }
+
       function fecharModal() {
         modal.style.display = "none";
+      }
+
+      /* SISTEMA DE CUPONS DIÁRIOS */
+      const listaCupons = [
+        "Vale uma ida ao cinema!",
+        "Vale uma nova cartinha, quando quiser!",
+        "Vale um Kinder Bueno!",
+        "Vale 10 minutos de massagem!",
+        "Vale uma flor!🌷",
+        "Vale UM dia de sim pra tudo (moderação, Marina)!",
+        "Você escolhe um livro pra mim!",
+        "Vale um moletom meu (por uma semana)!",
+        "Vale um post todo pra você",
+        "Vale um pedido especial!",
+        "Vale uma programação especial!",
+        "Vale uma ida no seu lugar favorito!",
+        "Vale um presente feito à mão!",
+        "Vale um date na academia!",
+        "Vale um lanchinho extra pra sua tarde!",
+        "Vale um SUPER elogio a cada 1 hora!",
+      ];
+
+      function carregarCupomDiario() {
+        const hoje = new Date().toDateString(); // Ex: "Wed Feb 11 2026"
+        let hash = 0;
+        for (let i = 0; i < hoje.length; i++) {
+          hash = hoje.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        const indice = Math.abs(hash) % listaCupons.length;
+        document.getElementById("cupom-texto").innerText = listaCupons[indice];
+      }
+      function atualizarCronometroCupom() {
+        const agora = new Date();
+
+        // Define o objetivo: Meia-noite de amanhã
+        const amanha = new Date();
+        amanha.setDate(agora.getDate() + 1);
+        amanha.setHours(0, 0, 0, 0);
+
+        const diff = amanha - agora; // Diferença em milissegundos
+
+        // Cálculos de horas, minutos e segundos
+        const horas = Math.floor(diff / (1000 * 60 * 60));
+        const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // Formatação para sempre ter dois dígitos (ex: 05:09:01)
+        const hDisplay = horas.toString().padStart(2, "0");
+        const mDisplay = minutos.toString().padStart(2, "0");
+        const sDisplay = segundos.toString().padStart(2, "0");
+
+        const elementoTimer = document.getElementById("tempo-restante");
+        if (elementoTimer) {
+          elementoTimer.innerText = `${hDisplay}:${mDisplay}:${sDisplay}`;
+        }
+      }
+
+      // Inicia o contador assim que o site abrir
+      setInterval(atualizarCronometroCupom, 1000);
+      atualizarCronometroCupom();
+
+      let cupomSorteadoManualmente = false;
+
+      function carregarCupomDiario() {
+        const hoje = new Date().toDateString();
+
+        // Verifica se já existe um cupom resortado hoje no cache do navegador
+        const sorteioExtraRealizado =
+          localStorage.getItem("dataSorteioExtra") === hoje;
+        const btn = document.getElementById("btn-resortear");
+
+        if (sorteioExtraRealizado) {
+          // Se já usou, desativa o botão e mostra o cupom que foi salvo
+          btn.disabled = true;
+          btn.innerText = "Tem mais amanhã, meu amor!";
+          document.getElementById("cupom-texto").innerText =
+            localStorage.getItem("textoCupomExtra");
+        } else {
+          // Se não usou, mostra o cupom oficial do dia (baseado no hash da data)
+          btn.disabled = false;
+          btn.innerText = "Tentar outro cupom (1x ao dia)";
+
+          let hash = 0;
+          for (let i = 0; i < hoje.length; i++) {
+            hash = hoje.charCodeAt(i) + ((hash << 5) - hash);
+          }
+          const indice = Math.abs(hash) % listaCupons.length;
+          document.getElementById("cupom-texto").innerText =
+            listaCupons[indice];
+        }
+      }
+
+      function resortearCupom() {
+        const hoje = new Date().toDateString();
+
+        // Escolhe um índice aleatório que NÃO seja o baseado na data
+        const indiceAleatorio = Math.floor(Math.random() * listaCupons.length);
+        const novoCupom = listaCupons[indiceAleatorio];
+
+        // Salva no navegador que ela já usou o sorteio hoje
+        localStorage.setItem("dataSorteioExtra", hoje);
+        localStorage.setItem("textoCupomExtra", novoCupom);
+
+        // Atualiza a tela
+        document.getElementById("cupom-texto").innerText = novoCupom;
+
+        const btn = document.getElementById("btn-resortear");
+        btn.disabled = true;
+        btn.innerText = "Sorteio extra já utilizado hoje ✔️";
+
+        // Efeito visual de brilho ao trocar
+        document.querySelector(".cupom-card").style.animation = "none";
+        setTimeout(() => {
+          document.querySelector(".cupom-card").style.animation =
+            "fadeIn 0.5s ease-out";
+        }, 10);
       }
     </script>
   </body>
