@@ -121,11 +121,11 @@ h2 {
 
 .cartas-grid {
   display: grid;
-  /* O 'auto-fill' garante que as cartas mantenham o tamanho fixo e pulem para baixo */
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  /* Cria colunas de no mínimo 150px que se ajustam sozinhas */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
-  max-width: 800px; /* Ajustado para caber melhor na tela */
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
   padding: 10px;
 }
 
@@ -302,29 +302,28 @@ h2 {
 
 
 .carta-btn {
-  position: relative;
-  height: 150px;
-  border: none;
-
-  position: relative;
   height: 120px;
-  background: linear-gradient(135deg, #fff 60%, #ffe1ef);
-  border-radius: 18px;
+  background: white;
+  border: 2px solid rgba(255, 95, 162, 0.1);
+  border-radius: 20px;
   color: var(--rosa);
   font-weight: 600;
-  font-size: 0.95rem;
   cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(255, 95, 162, 0.25);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+  box-shadow: 0 8px 20px rgba(255, 95, 162, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
 }
 
 /* sombra e leve levantar */
 .carta-btn:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(255, 95, 162, 0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(255, 95, 162, 0.25);
+  background: var(--rosa);
+  color: white;
 }
 
 /* aba do envelope */
@@ -358,15 +357,24 @@ h2 {
 
 /* texto da carta */
 .carta-btn span {
-  position: relative;
-  z-index: 2;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 /* imagem da carta aberta */
 .carta-escondida {
-  animation: abrirCarta 0.8s ease forwards;
-  box-shadow: 0 20px 40px rgba(255, 95, 162, 0.35);
-  border-radius: 20px;
+  display: none;
+  background: #fff;
+  padding: 30px;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 25px;
+  border-left: 8px solid var(--rosa);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  line-height: 1.6;
+  text-align: left;
+  color: #444;
+  white-space: pre-wrap; /* Mantém as quebras de linha do seu texto */
 }
 
 /* animação suave */
@@ -509,6 +517,7 @@ footer {
   text-align: center;
   font-size: 0.85rem;
 }
+
 
 
 
