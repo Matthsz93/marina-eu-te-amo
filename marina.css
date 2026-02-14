@@ -7,12 +7,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  overflow: hidden;
 }
 body {
   background: white;
   color: #333;
-  overflow: hidden;
 }
 
 #site {
@@ -513,3 +511,4 @@ footer {
   text-align: center;
   font-size: 0.85rem;
 }
+
