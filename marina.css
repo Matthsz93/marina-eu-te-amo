@@ -7,10 +7,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+
 }
 body {
   background: white;
   color: #333;
+
 }
 
 #site {
@@ -42,7 +44,7 @@ body {
 .conteudo {
   height: calc(100vh - 70px);
   position: relative;
-  overflow: hidden;
+
   flex: 1;
 }
 .secao {
@@ -116,27 +118,16 @@ h2 {
   background-image: url("euteamo.png");
 }
 
+
 .cartas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 15px;
-  max-width: 500px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 900px;
   margin: 0 auto;
 }
-.cartas-grid button {
-  padding: 15px;
-  border: none;
-  border-radius: 20px;
-  background: var(--rosa);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-}
-.cartas-grid button {
-  background: none;
-  padding: 0;
-  border-radius: 0;
-}
+
+
 .carta-escondida {
   display: none;
   margin: 30px auto 0;
@@ -307,7 +298,13 @@ h2 {
    CARTAS – ESTILO ENVELOPE
    ========================== */
 
+
 .carta-btn {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  border: none;
+
   position: relative;
   height: 120px;
   background: linear-gradient(135deg, #fff 60%, #ffe1ef);
@@ -316,7 +313,7 @@ h2 {
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  overflow: hidden;
+
   box-shadow: 0 10px 25px rgba(255, 95, 162, 0.25);
   transition:
     transform 0.4s ease,
@@ -465,7 +462,7 @@ h2 {
   border: 3px dashed var(--rosa);
   border-radius: 20px;
   padding: 0;
-  overflow: hidden;
+
   box-shadow: 0 10px 20px rgba(255, 95, 162, 0.2);
   position: relative;
 }
@@ -511,4 +508,5 @@ footer {
   text-align: center;
   font-size: 0.85rem;
 }
+
 
