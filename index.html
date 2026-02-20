@@ -27,6 +27,7 @@
         <button onclick="mudarSecao('musicas')">Músicas</button>
         <button onclick="mudarSecao('cupons')">Cupons</button>
         <button onclick="mudarSecao('atendimento')">Atendimento</button>
+        <button onclick="mudarSecao('motivos')">Motivos</button>
       </nav>
 
       <div class="tema-toggle">
@@ -84,6 +85,24 @@
             <h4>Primeiro “eu te amo”</h4>
             <p>E pra sempre ficou.</p>
             <img src="euteamo.png" />
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="card">
+            <span class="data">17 de fevereiro de 2026</span>
+            <h4>Primeira vez que nos vimos pessoamente</h4>
+            <p>& primeiro beijo</p>
+            <img src="carnaval.png" />
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="card">
+            <span class="data">19 de fevereiro de 2026</span>
+            <h4>Dia que ficou cuidando de mim passando mal de madrugada</h4>
+            <p>foi muito importante!</p>
+             <img src="declaraçao.png" />
           </div>
         </div>
       </section>
@@ -256,13 +275,124 @@
           </form>
         </div>
       </section>
+
+
+      <div id="modal" class="modal" onclick="fecharModal()">
+        <img id="img-modal" />
+      </div>
+  
+      <section id="motivos" class="secao motivos-section">
+        <h2 class="titulo-romantico">1.000 motivos pra te amar. &#128153</h2>
+  
+        <div class="motivo-card">
+          <p id="motivo-texto">Eu te amo, pra sempre.</p>
+  
+          <button class="btn-motivo" onclick="gerarMotivo()">
+            Sortear outro motivo!
+          </button>
+        </div>
+      </section>
     </main>
 
-    <div id="modal" class="modal" onclick="fecharModal()">
-      <img id="img-modal" />
-    </div>
 
     <script>
+      /* ==========================
+          GERADOR DE MOTIVOS
+        ========================== */
+
+      const listaMotivos = [
+        "Eu te amo pelo jeito que cuida de mim.",
+        "Eu te amo pelo jeito que se preocupa.",
+        "Eu te amo pelo seu abraço.",
+        "Eu te amo pelos seus olhos.",
+        "Eu te amo pelo seu sorriso.",
+        "Eu te amo pelo seu corpo.",
+        "Eu te amo pelo jeito que me faz rir do seu jeitinho idiota.",
+        "Eu te amo porque você é o meu futuro favorito.",
+        "Eu te amo porque nunca conheci alguém como você.",
+        "Eu te amo pela sua boca.",
+        "Eu te amo pelo seu jeito com sua família.",
+        "Eu te amo pela seu coração.",
+        "Eu te amo pela seu toque.",
+        "Eu te amo pela sua voz.",
+        "Eu te amo pelo seu cabelo.",
+        "Eu te amo pela sua calma (as vezes).",
+        "Eu te amo pela sua gentileza.",
+        "Eu te amo pela sua bondade.",
+        "Eu te amo pelo seu carinho.",
+        "Eu te amo pela sua estilo.",
+        "Eu te amo pelas suas habilidades.",
+        "Eu te amo pela sua luz.",
+        "Eu te amo pelo brilho do seu olho.",
+        "Eu te amo pelo seu beijo.",
+        "Eu te amo pela sua compreensão com tudo oq eu falo.",
+        "Eu te amo pelo seu jeito de ouvir.",
+        "Eu te amo porque te acho engraçada.",
+        "Eu te amo pela sua inteligência.",
+        "Eu te amo pelos seus gostos.",
+        "Eu te amo pelos seus sonhos.",
+        "Eu te amo pela sua doçura.",
+        "Eu te amo pela sua confiança.",
+        "Eu te amo pelo seu olhar.",
+        "Eu te amo pelo aconchego do seu abraço.",
+        "Eu te amo pela sua forma de conversar.",
+        "Eu te amo pela sua amizade.",
+        "Eu te amo pela sua honestidade.",
+        "Eu te amo pela sua proteção.",
+        "Eu te amo pela nossa conversa.",
+        "Eu te amo porque nossas metas são iguais.",
+        "Eu te amo pela forma que me incentiva a ser melhor.",
+        "Eu te amo pela sua forma de amar.",
+        "Eu te amo pela sua intensidade.",
+        "Eu te amo pela forma que diz que me ama sempre.",
+        "Eu te amo pelo jeito que me faz sentir.",
+        "Eu te amo porque gosto de todos os seus angulos.",
+        "Eu te amo pela sua bochechinha.",
+        "Eu te amo pelo seu nariz.",
+        "Eu te amo pela sua pupila dilatada quando me olha.",
+        "Eu te amo pelo seu jeito com crianças.",
+        "Eu te amo porque acho que vai ser boa mãe.",
+        "Eu te amo pelo tesão que me dá em te amar.",
+        "Eu te amo pela sua altura.",
+        "Eu te amo porque ama do mesmo jeito que eu.",
+        "Eu te amo porque você é a mais linda que já vi.",
+        "Eu te amo pela sua bondade.",
+        "Eu te amo pela saudades que me dá.",
+        "Eu te amo porque me faz ser melhor.",
+        "Eu te amo pela sua atenção aos detalhes.",
+        "Eu te amo porque voce zela por mim.",
+        "Eu te amo pelos seus dramas.",
+        "Eu te amo pelo seu carisma.",
+        "Eu te amo pelo seu cheiro (lembro dele todo dia).",
+        "Eu te amo pelas suas bobeiras.",
+        "Eu te amo porque me elogia.",
+        "Eu te amo pelas nossas noites.",
+        "Eu te amo pelos seus beijinhos.",
+        "Eu te amo porque se importa com meus sentimentos.",
+        "Eu te amo pela sua vontade de ser mãe.",
+        "Eu te amo pelo seu gosto musical.",
+        "Eu te amo pelo seu respeito.",
+        "Eu te amo porque voce me ama do jeito que sou.",
+        "Eu te amo porque a gente não precisa beijar pra se amar.",
+        "Eu te amo pela sua confiança.",
+        "Eu te amo pelo seus hobbies.",
+        "Eu te amo pela sua educação.",
+        "Eu te amo pelas suas preocupações.",
+        "Eu te amo pelos seus defeitos.",
+        "Eu te amo pela sua parceria.",
+      ];
+
+      function gerarMotivo() {
+        const indice = Math.floor(Math.random() * listaMotivos.length);
+        const texto = document.getElementById("motivo-texto");
+
+        texto.style.opacity = 0;
+
+        setTimeout(() => {
+          texto.innerText = listaMotivos[indice];
+          texto.style.opacity = 1;
+        }, 200);
+      }
       /* ==============================
            CONTADOR PRINCIPAL DA TIMELINE
            ============================== */
@@ -453,16 +583,6 @@
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 
 
