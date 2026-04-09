@@ -6,10 +6,11 @@
     <title>Marina</title>
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Great+Vibes&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="marina.css" />
+    <link rel="stylesheet" href="marina-clean.css" />
   </head>
 
   <body>
@@ -46,7 +47,7 @@
     <main>
       <!-- TIMELINE -->
       <section id="timeline" class="secao ativa">
-        <h2>Nossa história, ainda curtinha</h2>
+        <h2>Nossa história</h2>
 
         <div class="contador">
           <h3>Eu sou o homem mais feliz do mundo há:</h3>
@@ -75,7 +76,7 @@
             <span class="data">1 de janeiro de 2026</span>
             <h4>Primeira vez que nos falamos</h4>
             <p>Cantadinha idiota</p>
-            <img src="cantada.png" />
+            <img src="cantada.png" onclick="abrirModal(this)" />
           </div>
         </div>
 
@@ -84,7 +85,7 @@
             <span class="data">7 de janeiro de 2026</span>
             <h4>Primeiro “eu te amo”</h4>
             <p>E pra sempre ficou.</p>
-            <img src="euteamo.png" />
+            <img src="euteamo.png" onclick="abrirModal(this)" />
           </div>
         </div>
 
@@ -93,7 +94,7 @@
             <span class="data">17 de fevereiro de 2026</span>
             <h4>Primeira vez que nos vimos pessoamente</h4>
             <p>& primeiro beijo</p>
-            <img src="carnaval.png" />
+            <img src="carnaval.png" onclick="abrirModal(this)" />
           </div>
         </div>
 
@@ -102,46 +103,31 @@
             <span class="data">19 de fevereiro de 2026</span>
             <h4>Dia que ficou cuidando de mim passando mal de madrugada</h4>
             <p>foi muito importante!</p>
-             <img src="declaraçao.png" />
+             <img src="declaraçao.png" onclick="abrirModal(this)" />
           </div>
         </div>
       </section>
 
       <!-- CARTAS -->
       <section id="cartas" class="secao">
-        <h2>Tudo que merece ouvir 💌</h2>
+        <h2>Tudo que merece ouvir</h2>
 
         <div class="cartas-grid">
-          <button class="carta-btn" onclick="mostrarCarta(1)">
-            <span>09/01 "Seu corpo"</span>
-          </button>
+          <article id="carta-do-dia" class="carta-envelope">
+            <button
+              type="button"
+              class="carta-tampa"
+              onclick="abrirCartaDoDia()"
+            >
+              <strong id="carta-titulo"></strong>
+              <small class="carta-abrir">toque para abrir</small>
+            </button>
 
-          <button class="carta-btn" onclick="mostrarCarta(2)">
-            <span>10/01 "Jeito"</span>
-          </button>
-
-          <button class="carta-btn" onclick="mostrarCarta(3)">
-            <span>13/01 "Quando te vi"</span>
-          </button>
-
-          <button class="carta-btn" onclick="mostrarCarta(4)">
-            <span>14/01 "Cores e Músicas"</span>
-          </button>
-
-          <button class="carta-btn" onclick="mostrarCarta(5)">
-            <span>31/01 "Razão"</span>
-          </button>
-
-          <button class="carta-btn" onclick="mostrarCarta(6)">
-            <span>09/02 "Sorte"</span>
-          </button>
-
-          <button class="carta-btn" onclick="mostrarCarta(7)">
-            <span>13/02 "Beleza"</span>
-          </button>
+            <div class="carta-papel">
+              <div id="texto-carta" class="carta-conteudo"></div>
+            </div>
+          </article>
         </div>
-
-        <div id="texto-carta" class="carta-escondida"></div>
       </section>
 
       <!-- FOTOS -->
@@ -174,6 +160,12 @@
           <img src="h.png" onclick="abrirModal(this)" />
           <img src="i.png" onclick="abrirModal(this)" />
           <img src="J.jpg" onclick="abrirModal(this)" />
+          <img src="cabelo.png" onclick="abrirModal(this)" />
+          <img src="boca-delicia.png" onclick="abrirModal(this)" />
+          <img src="fofa.png" onclick="abrirModal(this)" />
+          <img src="bunduda.png" onclick="abrirModal(this)" />
+          <img src="tumblr.png" onclick="abrirModal(this)" />
+          <img src="tesao.png" onclick="abrirModal(this)" />
         </div>
       </section>
 
@@ -182,45 +174,37 @@
         <h2>Músicas que me lembram você</h2>
 
         <div class="grid-musicas">
-          <iframe
-            src="https://open.spotify.com/embed/track/6vCdpd14MWtjdaafAv5vOC"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/35hcTbiin6rMydWixorzN5"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/2KGv51jgAz8OTjNPyRryfq"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/4SpqtLElDsO6KGbd4ub96Z"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/3iof6EclqePezHDibBiykI"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/4JSROzfWqKccwZ68DX1aJe"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/7qvmmQMaJ9EdxeFChIyNhu"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/3i6qNjqo0B4gKNYdOlukv1"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/2qPSa6HXjzwa9sLhNGpA1T"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/43BCxznTSBLcXzu4lJ8KW5"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/31s1pfAuukn7r3HhCLdxZ1"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/5GNT8tXCqPop8K4t3hvVaH"
-          ></iframe>
-          <iframe
-            src="https://open.spotify.com/embed/track/1UVquahdeg6mRYDTHFKRx0"
-          ></iframe>
+          <iframe src="https://open.spotify.com/embed/track/6vCdpd14MWtjdaafAv5vOC" title="Marina"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/1w6jyYyZLQPyWcQW5TfeAh" title="O Velho e a Flor"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/0ja80k9GL9aR5IZ79tQHVX" title="Será que é amor - Ao vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/35hcTbiin6rMydWixorzN5" title="Trilha do Amor - Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/352FuGmGJClPjojSYjNrXG" title="Já Sei Namorar - 2004 Digital Remaster"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/1mSxbLW7fKABfeY4lGpg0E" title="Velha Infância - 2004 Digital Remaster"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/29C9uNdkjwzWFfcAPhOuFk" title="Céu Azul (Ao Vivo)"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/6q0NibbSeBWh88sJjrRPE4" title="Mina do Condomínio"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/1Uqck6v6rmjxNh6BNSq5Nd" title="Como É Que A Gente Fica - Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/4J8kzFoKJ86pnO39RUWG9Z" title="Tão Linda"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/7evftBiobEwWOwfxiTnnKc" title="Calma"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/2KGv51jgAz8OTjNPyRryfq" title="Pra Sempre Com Você - Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/4GQVVsUnMbZeKIx9vguKlg" title="A Rosa E O Beija-Flor - Na Praia / Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/1DLKuppSYytOuxhtI6KBGu" title="Aliança"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/7f31hpujI6Yb0iA0D8d7ln" title="Tiro Ao Álvaro"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/4MUwKT77PAF9YGIWWvvYpQ" title="Sozinho - Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/43BCxznTSBLcXzu4lJ8KW5" title="Ainda Bem"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/5lvvqOEWpUvs2jaFkQTFWJ" title="Quando Bate Aquela Saudade"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/4SpqtLElDsO6KGbd4ub96Z" title="Pela Luz dos Olhos Teus - Bonus Track"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/6wky1KFF0YvgtrFaH4ep9r" title="Eu Te Devoro"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/6owwZC8gUvrBuygvOHaYXb" title="Mania De Você"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/3iof6EclqePezHDibBiykI" title="Oceano"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/2o2xhyri4aJUtgMGkf5P0J" title="Lisboa"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/2OIDEIfnVoVUtFnhlasLqf" title="Minha Vida"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/59nm8mNBtNiGWZMgrhU7wx" title="Flor - Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/24bOiXGnWfwged0gg0LemU" title="Onde Anda Você"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/1ASANmuh19cmVz8MiCkUgt" title="Samurai (feat. Stevie Wonder)"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/4JSROzfWqKccwZ68DX1aJe" title="Tudo Que Você Quiser - Ao Vivo"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/1tIJ4Jlxvbj6pEF9lTxoLf" title="Serenata Existencialista"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/2qPSa6HXjzwa9sLhNGpA1T" title="Home"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/5GNT8tXCqPop8K4t3hvVaH" title="De Love"></iframe>
         </div>
 
         <a
@@ -234,7 +218,7 @@
 
       <!-- CUpons e Atendimento permanecem iguais -->
       <section id="cupons" class="secao">
-        <h2>Cupom do Dia 🎟️</h2>
+        <h2>Cupom do Dia</h2>
 
         <div class="cupom-container">
           <div class="cupom-card">
@@ -245,7 +229,7 @@
 
               <div class="cupom-codigo">Válido somente hoje!</div>
 
-              <button id="btn-resortear">Sortear outro</button>
+              <button id="btn-resortear" onclick="resortearCupom()">Sortear outro</button>
             </div>
 
             <div class="cupom-footer">CÓDIGO: marinalindagatagostosa</div>
@@ -259,7 +243,7 @@
       </section>
 
       <section id="atendimento" class="secao">
-        <h2>Central de Atendimento 💌</h2>
+        <h2>Central de Atendimento</h2>
 
         <div class="atendimento-container">
           <p class="texto-instrucao">
@@ -278,11 +262,12 @@
 
 
       <div id="modal" class="modal" onclick="fecharModal()">
-        <img id="img-modal" />
+        <button class="modal-fechar" type="button" onclick="fecharModal(event)">×</button>
+        <img id="img-modal" onclick="event.stopPropagation()" ondblclick="alternarZoomModal(event)" />
       </div>
   
       <section id="motivos" class="secao motivos-section">
-        <h2 class="titulo-romantico">1.000 motivos pra te amar. &#128153</h2>
+        <h2 class="titulo-romantico">1.000 motivos pra te amar.</h2>
   
         <div class="motivo-card">
           <p id="motivo-texto">Eu te amo, pra sempre.</p>
@@ -422,6 +407,7 @@
         }
 
         atualizarContadorPrincipal();
+        carregarCartaDoDia();
         setInterval(atualizarContadorPrincipal, 1000);
       });
 
@@ -440,41 +426,124 @@
       function mudarTema(cor) {
         if (cor === "rosa") {
           document.documentElement.style.setProperty("--cor", "#ff5fa2");
+          document.documentElement.style.setProperty("--fundo", "#ffeaf3");
+          document.documentElement.style.setProperty("--fundo-elevado", "#fff3f8");
+          document.documentElement.style.setProperty("--texto", "#3f1830");
+          document.documentElement.style.setProperty("--texto-suave", "#8b4c6d");
+          document.documentElement.style.setProperty("--borda", "rgba(255, 95, 162, 0.22)");
+          document.documentElement.style.setProperty("--sombra", "0 24px 80px rgba(255, 95, 162, 0.14)");
+          document.documentElement.style.setProperty("--fundo-forte", "#ffd7e8");
+          document.documentElement.style.setProperty("--fundo-suave", "#ffdceb");
+          document.documentElement.style.setProperty("--fundo-card", "#fff7fb");
+          document.documentElement.style.setProperty("--fundo-card-alt", "#fff0f6");
+          document.documentElement.style.setProperty("--fundo-hover", "#ffe5f1");
+          document.documentElement.style.setProperty("--fundo-destaque", "#ffc5dd");
+          document.documentElement.style.setProperty("--fundo-chip", "#ffcfe2");
+          document.documentElement.style.setProperty("--fundo-cupom", "#ffe3ef");
         }
         if (cor === "azul") {
           document.documentElement.style.setProperty("--cor", "#a8d8ff");
+          document.documentElement.style.setProperty("--fundo", "#eaf6ff");
+          document.documentElement.style.setProperty("--fundo-elevado", "#f3faff");
+          document.documentElement.style.setProperty("--texto", "#17324a");
+          document.documentElement.style.setProperty("--texto-suave", "#4c6f8b");
+          document.documentElement.style.setProperty("--borda", "rgba(168, 216, 255, 0.32)");
+          document.documentElement.style.setProperty("--sombra", "0 24px 80px rgba(124, 181, 230, 0.18)");
+          document.documentElement.style.setProperty("--fundo-forte", "#d7ecff");
+          document.documentElement.style.setProperty("--fundo-suave", "#dcefff");
+          document.documentElement.style.setProperty("--fundo-card", "#f7fbff");
+          document.documentElement.style.setProperty("--fundo-card-alt", "#eef7ff");
+          document.documentElement.style.setProperty("--fundo-hover", "#e5f3ff");
+          document.documentElement.style.setProperty("--fundo-destaque", "#c5e3ff");
+          document.documentElement.style.setProperty("--fundo-chip", "#cfe7ff");
+          document.documentElement.style.setProperty("--fundo-cupom", "#e3f1ff");
         }
       }
 
       function abrirModal(img) {
-        document.getElementById("modal").style.display = "flex";
-        document.getElementById("img-modal").src = img.src;
+        const modal = document.getElementById("modal");
+        const imagemModal = document.getElementById("img-modal");
+
+        modal.style.display = "flex";
+        imagemModal.src = img.src;
+        imagemModal.classList.remove("zoom-ativo");
       }
 
-      function fecharModal() {
+      function fecharModal(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+
         document.getElementById("modal").style.display = "none";
+        document.getElementById("img-modal").classList.remove("zoom-ativo");
       }
 
-      function mostrarCarta(n) {
-        const textos = {
-          1: "espero que tenha sido sua melhor noite de sono amor, sinto sua falta o dia inteiro, eu tava te vendo no insta e CARA não é nem um pouco comum o quanto eu sou apaixonado em cada linha que te desenha, seu cabelo é o meu favorito no mundo (NÃO TROCARIA POR NADA!!!!!!!!), seus olhos tem o formato e a cor mais bonita que já vi, com certeza é minha favorita, seu nariz redondinho EU AMO MUITO é um charme do caralho, sua boca forma meu desenho favorito, a expressão de arte mais linda que já vi em toda minha vida, a atração que eu sinto por ela é surreal tive que separar outra mensagem pra falar do seu corpo pq CARALHO, oq é aquilo, seus ombros finos me chamam a atenção de um jeito hipnotizante, a curva que forma seu peito, sua cintura e seu quadril é a linha mais gostosa e atraente que já vi, minha mão sonha dia e noite em repousar aí logo, suas coxas parecendo as escadas pro paraíso, ENORMES e lindas, completamente esculpidas e irreais.",
-          2: "Hoje eu queria muito falar sobre seu jeito, pq se seu corpo e seu rosto foi o que me fizeram vir, seu jeito foi oq me fez ficar. Sua forma de conversar, que desde o primeiro dia exalava um sorriso bobo, suas piadas não tão engraçadas, mas que pra mim te tornam a mulher mais hilária que eu ja vi (um pouco idiota KKKK), seus gostos e sonhos que nos tornavam tão compatíveis e nos aproximavam cada dia mais, até chegar no momento que me apaixonei por você.Eu me apaixonei pelo jeito que me faz sentir tudo aquilo que ninguém jamais fez. Você uma vez reclamou sobre não ser a minha primeira, mas você foi a primeira que me fez me sentir especial, você foi a primeira que me fez querer estar perto 24h por dia, você foi a primeira que me apaixonei antes de sequer vê-la, você foi a primeira que me fez dormir e acordar com a mesma imagem, você foi a primeira que sonhou comigo com sinceridade, você foi a primeira que me fez me sentir amado. E além da primeira, você é especial. Tudo isso te credita a ser a melhor mulher da minha vida, eu te amo marina, e te quero pra sempre",
-          3: "Meu amor, eu quero que sempre se lembre o quão apaixonante é te ver, te conhecer e consumir a sua vivência todo dia, hoje eu queria falar da primeira vez que te vi pelo instagram, quando stalkeei seus destaques para achar um jeito que chamasse a sua atenção, mas na vdd só consegui atiçar a minha, teu cabelo (que sempre foi o mais bonito que já vi), teu olho azul, teu estilo,  seu jeito com a família, tudo. Tudo seu eram as coisas mais atraentes que já tinha visto, não imaginava me apaixonar tão cedo, mas tambem eu tinha certeza que não demoraria muito, você é tão atraente, no sentido magnético, que faz meu corpo conversar com aquelas fotos e vídeos de um jeito que nunca tinha visto antes. Quando me envia um vídeo seu, meu coração acelera, meu sorriso abre, e mais coisas que não cabem mto bem aqui kkkk. Você é a menina mais linda que já conheci por isso marina, você é a que melhor conversa com meu corpo, e eu gosto muito que seja você que tenha esse controle, você é a mais bonita que já vi.",
-          4: "Meu amor, hoje eu queria lembrar como me apaixonei por coisas que você nunca tentou me mostrar, apenas me permitiu te conhecer e com isso, descobri as partes mais bonitas naquela mulher que me vislumbrou (e ainda vislumbra) os olhos. Desde o primeiro dia, sempre reparei a felicidade que irradiava de todas as mensagens que mandava, o quão viva conseguia ser, amarela vibrante, de forma que fazia me sentir um pintor sem orelhas da epoca de 1900, apaixonado pela cor que você transmitia, uma sensão de conexão com a sua alma, que NUNCA tinha me acontecido. Mas mesmo assim sempre te vi azul, a mesma cor de todas as minhas vistas favoritas (seus olhos e o mar), um azul bebê, que transmitia tudo que há em você, um amor puro, que discreveu djavan, um coração que palpitava carinho, por seus familiares, gatos, cachorros, e mais tarde por mim. Então por isso, hoje, eu te devoro. E como disse chico, o buarque (não foi nenhum dos nossos gatos), marina você ME pintou, com as suas cores tão lindas que me atraem cada dia mais pra você. Te amo Marina, morena.",
-          5: "Eu queria te falar algumas coisas que me mostraram como amar é algo desconexo da mente, uma vez que te amar nunca passou por um departamento da razão, que analisou os prós e os contras e escolheu sua pessoa com frieza, te amar é algo muito mais fácil que isso. Nunca precisei te duvidar ou balancear seus pontos negativos, por que nunca vi seus 'defeitos' como algo que me impedissem de te amar, muito pelo contrário, seus 'defeitos' fazem parte do amor que sinto por ti. Minha cabeça não precisa pensar pro meu coração sentir, você corta todos os caminhos, sua mensagem não precisa ser lida pra que eu saiba o que eu tenho vontade de te falar, não vão passar 5 mensagens e eu vou acabar mandando um 'eu te amo', lembro como foi dificil segurar isso, e faz sentido, pq é o que mais quero te falar em todos os momentos do meu dia. Eu quero te amar desse jeito marina, e te fazer se sentir amada irracionalmente, além da capacidade humana de processamento, quero que seja única, singular, especial. O que eu sinto por você é além desse universo.",
-          6: "Você é minha maior sorte, Marina. Dividir meus dias com você me tem feito um homem mais feliz, mais paciente e mais completo. Você me mostra todos os dias que sempre é possível amar mais alguém, mesmo quando parece que já cheguei ao limite. Você me faz sentir isso no bom dia carinhoso que me envia pela manhã, nos detalhes bobos do seu dia que compartilha comigo, ou naquele momento da noite em que eu sempre estou com sono, mas a vontade de te viver sempre vence. Você é a mulher mais divertida, amorosa, engraçada, inteligente, dedicada, radiante, encantadora, gentil, educada e deslumbrante que já conheci. Eu penso em você a cada segundo e sinto meu coração palpitar mais forte a cada visão que tenho de ti em minha imaginação, e, coincidentemente ou não, seu sorriso sempre está presente nessas visões. Toda vez que lembro do seu sorriso, penso no quão feliz vou ser ao vê-lo no rosto das minhas filhas. Você me conquista sem se esforçar, Marina. Eu vou lutar por ti todos os segundos que eu estiver nesta terra. Você é quem me faz feliz, e farei tudo o que for possível para que seja assim, para que viva o resto da sua vida ao meu lado. Eu te amo, Marina, e sempre vou.",
-          7: "Oi meu amor, saudades suas. Você me ensina todo dia uma coisa nova sobre o amor, o jeito que você cuida de mim, o jeito que ri, o jeito que se preocupa, o seu amor é lindo, em cada jeito que ele poderia ser. A sua beleza vai muito além do seu cabelo cacheado (meu favorito), do seu olho azul que seria facilmente um quadro na minha sala e da sua boca que me faz imaginar coisas terríveis de longe. Você tem beleza no jeito que age, marina, você me atrai no jeito que se comunica, o seu carinho exala seu ponto mais lindo, seu coração. É nele que minha felicidade diária se alimenta, o jeito que diz que ama, as brincadeiras inofensivas que divertem meu dia, os dramas com intuito de ser amada, tudo isso faz com que eu diga que TE AMO todos os dias, Marina. Você é toda linda,  em ti encontrei meu melhor, você é de todas no mundo, aquela que é mais bonita em todas as formas e jeitos, você é a minha mulher, a única que vou querer todos os dias de manhã, você é a minha mulher.",
-        };
-        const box = document.getElementById("texto-carta");
-        box.innerText = textos[n];
-        box.style.display = "block";
+      function alternarZoomModal(event) {
+        event.stopPropagation();
+        event.currentTarget.classList.toggle("zoom-ativo");
+      }
+
+      const cartas = [
+        {
+          data: '09/01',
+          titulo: '"Seu corpo"',
+          texto: "espero que tenha sido sua melhor noite de sono amor, sinto sua falta o dia inteiro, eu tava te vendo no insta e CARA não é nem um pouco comum o quanto eu sou apaixonado em cada linha que te desenha, seu cabelo é o meu favorito no mundo (NÃO TROCARIA POR NADA!!!!!!!!), seus olhos tem o formato e a cor mais bonita que já vi, com certeza é minha favorita, seu nariz redondinho EU AMO MUITO é um charme do caralho, sua boca forma meu desenho favorito, a expressão de arte mais linda que já vi em toda minha vida, a atração que eu sinto por ela é surreal tive que separar outra mensagem pra falar do seu corpo pq CARALHO, oq é aquilo, seus ombros finos me chamam a atenção de um jeito hipnotizante, a curva que forma seu peito, sua cintura e seu quadril é a linha mais gostosa e atraente que já vi, minha mão sonha dia e noite em repousar aí logo, suas coxas parecendo as escadas pro paraíso, ENORMES e lindas, completamente esculpidas e irreais.",
+        },
+        {
+          data: '10/01',
+          titulo: '"Jeito"',
+          texto: "Hoje eu queria muito falar sobre seu jeito, pq se seu corpo e seu rosto foi o que me fizeram vir, seu jeito foi oq me fez ficar. Sua forma de conversar, que desde o primeiro dia exalava um sorriso bobo, suas piadas não tão engraçadas, mas que pra mim te tornam a mulher mais hilária que eu ja vi (um pouco idiota KKKK), seus gostos e sonhos que nos tornavam tão compatíveis e nos aproximavam cada dia mais, até chegar no momento que me apaixonei por você.Eu me apaixonei pelo jeito que me faz sentir tudo aquilo que ninguém jamais fez. Você uma vez reclamou sobre não ser a minha primeira, mas você foi a primeira que me fez me sentir especial, você foi a primeira que me fez querer estar perto 24h por dia, você foi a primeira que me apaixonei antes de sequer vê-la, você foi a primeira que me fez dormir e acordar com a mesma imagem, você foi a primeira que sonhou comigo com sinceridade, você foi a primeira que me fez me sentir amado. E além da primeira, você é especial. Tudo isso te credita a ser a melhor mulher da minha vida, eu te amo marina, e te quero pra sempre",
+        },
+        {
+          data: '13/01',
+          titulo: '"Quando te vi"',
+          texto: "Meu amor, eu quero que sempre se lembre o quão apaixonante é te ver, te conhecer e consumir a sua vivência todo dia, hoje eu queria falar da primeira vez que te vi pelo instagram, quando stalkeei seus destaques para achar um jeito que chamasse a sua atenção, mas na vdd só consegui atiçar a minha, teu cabelo (que sempre foi o mais bonito que já vi), teu olho azul, teu estilo,  seu jeito com a família, tudo. Tudo seu eram as coisas mais atraentes que já tinha visto, não imaginava me apaixonar tão cedo, mas tambem eu tinha certeza que não demoraria muito, você é tão atraente, no sentido magnético, que faz meu corpo conversar com aquelas fotos e vídeos de um jeito que nunca tinha visto antes. Quando me envia um vídeo seu, meu coração acelera, meu sorriso abre, e mais coisas que não cabem mto bem aqui kkkk. Você é a menina mais linda que já conheci por isso marina, você é a que melhor conversa com meu corpo, e eu gosto muito que seja você que tenha esse controle, você é a mais bonita que já vi.",
+        },
+        {
+          data: '14/01',
+          titulo: '"Cores e Músicas"',
+          texto: "Meu amor, hoje eu queria lembrar como me apaixonei por coisas que você nunca tentou me mostrar, apenas me permitiu te conhecer e com isso, descobri as partes mais bonitas naquela mulher que me vislumbrou (e ainda vislumbra) os olhos. Desde o primeiro dia, sempre reparei a felicidade que irradiava de todas as mensagens que mandava, o quão viva conseguia ser, amarela vibrante, de forma que fazia me sentir um pintor sem orelhas da epoca de 1900, apaixonado pela cor que você transmitia, uma sensão de conexão com a sua alma, que NUNCA tinha me acontecido. Mas mesmo assim sempre te vi azul, a mesma cor de todas as minhas vistas favoritas (seus olhos e o mar), um azul bebê, que transmitia tudo que há em você, um amor puro, que discreveu djavan, um coração que palpitava carinho, por seus familiares, gatos, cachorros, e mais tarde por mim. Então por isso, hoje, eu te devoro. E como disse chico, o buarque (não foi nenhum dos nossos gatos), marina você ME pintou, com as suas cores tão lindas que me atraem cada dia mais pra você. Te amo Marina, morena.",
+        },
+        {
+          data: '31/01',
+          titulo: '"Razão"',
+          texto: "Eu queria te falar algumas coisas que me mostraram como amar é algo desconexo da mente, uma vez que te amar nunca passou por um departamento da razão, que analisou os prós e os contras e escolheu sua pessoa com frieza, te amar é algo muito mais fácil que isso. Nunca precisei te duvidar ou balancear seus pontos negativos, por que nunca vi seus 'defeitos' como algo que me impedissem de te amar, muito pelo contrário, seus 'defeitos' fazem parte do amor que sinto por ti. Minha cabeça não precisa pensar pro meu coração sentir, você corta todos os caminhos, sua mensagem não precisa ser lida pra que eu saiba o que eu tenho vontade de te falar, não vão passar 5 mensagens e eu vou acabar mandando um 'eu te amo', lembro como foi dificil segurar isso, e faz sentido, pq é o que mais quero te falar em todos os momentos do meu dia. Eu quero te amar desse jeito marina, e te fazer se sentir amada irracionalmente, além da capacidade humana de processamento, quero que seja única, singular, especial. O que eu sinto por você é além desse universo.",
+        },
+        {
+          data: '09/02',
+          titulo: '"Sorte"',
+          texto: "Você é minha maior sorte, Marina. Dividir meus dias com você me tem feito um homem mais feliz, mais paciente e mais completo. Você me mostra todos os dias que sempre é possível amar mais alguém, mesmo quando parece que já cheguei ao limite. Você me faz sentir isso no bom dia carinhoso que me envia pela manhã, nos detalhes bobos do seu dia que compartilha comigo, ou naquele momento da noite em que eu sempre estou com sono, mas a vontade de te viver sempre vence. Você é a mulher mais divertida, amorosa, engraçada, inteligente, dedicada, radiante, encantadora, gentil, educada e deslumbrante que já conheci. Eu penso em você a cada segundo e sinto meu coração palpitar mais forte a cada visão que tenho de ti em minha imaginação, e, coincidentemente ou não, seu sorriso sempre está presente nessas visões. Toda vez que lembro do seu sorriso, penso no quão feliz vou ser ao vê-lo no rosto das minhas filhas. Você me conquista sem se esforçar, Marina. Eu vou lutar por ti todos os segundos que eu estiver nesta terra. Você é quem me faz feliz, e farei tudo o que for possível para que seja assim, para que viva o resto da sua vida ao meu lado. Eu te amo, Marina, e sempre vou.",
+        },
+        {
+          data: '13/02',
+          titulo: '"Beleza"',
+          texto: "Oi meu amor, saudades suas. Você me ensina todo dia uma coisa nova sobre o amor, o jeito que você cuida de mim, o jeito que ri, o jeito que se preocupa, o seu amor é lindo, em cada jeito que ele poderia ser. A sua beleza vai muito além do seu cabelo cacheado (meu favorito), do seu olho azul que seria facilmente um quadro na minha sala e da sua boca que me faz imaginar coisas terríveis de longe. Você tem beleza no jeito que age, marina, você me atrai no jeito que se comunica, o seu carinho exala seu ponto mais lindo, seu coração. É nele que minha felicidade diária se alimenta, o jeito que diz que ama, as brincadeiras inofensivas que divertem meu dia, os dramas com intuito de ser amada, tudo isso faz com que eu diga que TE AMO todos os dias, Marina. Você é toda linda,  em ti encontrei meu melhor, você é de todas no mundo, aquela que é mais bonita em todas as formas e jeitos, você é a minha mulher, a única que vou querer todos os dias de manhã, você é a minha mulher.",
+        },
+      ];
+
+      function carregarCartaDoDia() {
+        const hoje = new Date();
+        const inicio = new Date(2026, 0, 9);
+        hoje.setHours(0, 0, 0, 0);
+        inicio.setHours(0, 0, 0, 0);
+
+        const diasPassados = Math.floor((hoje - inicio) / 86400000);
+        const indice = ((diasPassados % cartas.length) + cartas.length) % cartas.length;
+        const carta = cartas[indice];
+
+        document.getElementById("carta-titulo").innerText = carta.titulo;
+        document.getElementById("texto-carta").innerText = carta.texto;
+      }
+
+      function abrirCartaDoDia() {
+        document.getElementById("carta-do-dia").classList.toggle("aberta");
       }
       /* SISTEMA DE CUPONS DIÁRIOS */
       const listaCupons = [
         "Vale uma ida ao cinema!",
         "Vale uma nova cartinha, quando quiser!",
         "Vale um Kinder Bueno!",
-        "Vale uma flor!🌷",
+        "Vale uma flor!",
         "Vale UM dia de sim pra tudo (moderação, Marina)!",
         "Você escolhe um livro pra mim!",
         "Vale um pedido especial!",
@@ -571,7 +640,7 @@
 
         const btn = document.getElementById("btn-resortear");
         btn.disabled = true;
-        btn.innerText = "Sorteio extra já utilizado hoje ✔️";
+        btn.innerText = "Sorteio extra ja utilizado hoje";
 
         // Efeito visual de brilho ao trocar
         document.querySelector(".cupom-card").style.animation = "none";
